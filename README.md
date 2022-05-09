@@ -1,5 +1,7 @@
 # calculator
 
+-[calculator link](https://showytam.github.io/calculator-vue/)
+
 ## Project setup
 ```
 npm install
