@@ -48,11 +48,13 @@ export default {
     const prevNum = ref('')
     const selectedOperation = ref('')
 
+console.log(currentNum.value.substring(1,2))
+
     const pressed = value => {
       if (value === '=' || value === 'Enter') result()
-      else if (currentNum.value.substring(0, 1) === '0') replaceZero(value)
+      else if (currentNum.value.length > 9) alert('KEY ERROR: Display limit reached')
       else if (currentNum.value.substring(0, 1) === '.') replaceDot(value)
-      else if (value === '.') dot()
+      else if (value === '.' ) dot()
       else if (operations.includes(value)) applyOperation(value)
       else if (numbers.includes(value)) appendNumber(value)
     }
@@ -62,10 +64,7 @@ export default {
         clear()
       }
       calculate()
-    }
-
-    const replaceZero = value => {
-      currentNum.value = value
+      
     }
 
     const dot = () => {
@@ -162,7 +161,7 @@ export default {
 .main {
   width: 100vw;
   height: 100vh;
-  background: url(../assets/image/bg2.jpg);
+  background: url(../assets/image/bg9.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: sans-serif;
@@ -178,7 +177,7 @@ export default {
 
 .calculator {
   max-width: 320px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(74, 73, 73, 0.2);
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -205,7 +204,8 @@ export default {
   transition: all 0.3s;
   border-radius: 3px;
   background: transparent;
-  color: rgb(133, 131, 131);
+  /* color: rgb(133, 131, 131); */
+  color:snow;
 }
 
 .clear {
